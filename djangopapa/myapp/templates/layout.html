@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        Pagina web con django
+        {% endblock %}
+        | technews
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+
+    <!--cabecera de la pagina-->
+    <header>
+        <div id="logotipo">
+            <img src="{% static 'images/logo.png' %}"/>
+            <h1> Sitio web con django | Juanjosé Pérez Guerrero</h1>
+        </div>
+    </header>
+    
+    
+
+    <nav>
+        <ul>
+            <li>
+                <a href={% url 'index' %}>Inicio</a>
+            </li>
+            <li>
+                <a href={% url 'articulos' %}>articulos</a>
+            </li>
+            <li>
+                <a href={% url 'create' %}>Crear articulos</a>
+            </li>
+            <li>
+                <a href={% url 'create_full' %}>crear full</a>
+            </li>
+            <li>
+                <a href={% url 'años' %}>años</a>
+            </li>
+            <li>
+                <a href={% url 'contacto' %}>contacto</a>
+            </li>
+        </ul>   
+    </nav>
+
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
+
+  
+    
+
+    <div id="content">
+        
+        <div class="box">
+
+            {% block content %}
+            <!--contenido-->
+            {% endblock %}
+
+        </div>
+       
+    </div>
+
+    <footer>
+        pagina web &copy; Juanjodh19 {% now "d/m/Y" %}
+    </footer>
+</body>
+
+</html>

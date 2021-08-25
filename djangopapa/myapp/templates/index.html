@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %} Años hasta 2050{% endblock %}
+
+{% block content %}
+<h1 class="titulo">Home</h1>
+    <h2>Productos-Contacto-carrito</h2>
+
+{% if nombre and nombre == 'Juanjo' %}
+    <p>{{nombre}}</p>
+{% else %}
+    <strong>El nombre no existe o no coincide</strong>
+{% endif %}
+
+<h3>Listado de lenguajes de programación</h3>
+
+{% for lenguaje in lenguajes %}
+    <li>{{forloop.counter}}.{{lenguaje}}</li>
+
+{% empty %}
+    <p>No hay lenguajes para mostrar</p>
+
+{% endfor %}
+
+
+{% include 'fecha.html' %}
+
+{% endblock %}
+

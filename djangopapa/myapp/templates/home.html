@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% comment 'nota de comentario' %}
+esto es un comentario
+{% endcomment %}
+
+{% block content %}
+<h1 class="titulo">Pagina principal</h1>
+    <h2>Productos-Contacto-carrito</h2>
+
+{% load filters %}
+{{ 'juanjo'|saludo|safe }}
+
+{% endblock %}
+
+

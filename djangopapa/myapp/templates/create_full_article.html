@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block title %}Formularios en django{% endblock %}
+
+{% block content %}
+
+{% if form.errors %}
+
+<strong class='form_errors'>
+    Hay errores en el formulario
+</strong>
+
+{% endif %}
+
+<h1>Formularios en django</h1> 
+<form action='{% url "create_full" %}' method="POST">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <input type='submit' value='guardar'/>
+
+</form>
+
+{% endblock %}

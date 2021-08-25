@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block title %}Articulos{% endblock %}
+
+{% block content %}
+
+<h1>Listado de articulos</h1>
+
+{% if messages %}
+
+    {% for message in messages %}
+
+        <div class='mensajes'>
+            {{message}}
+        </div>
+
+    {% endfor %}
+
+{% endif %}
+
+    <ul>
+        {% for articulo in articulos %}
+            <li>
+            
+                <h3>{{articulo.id}}.{{articulo.title}}</h3>
+                <h4>{{articulo.content}}</h4>
+                <span>{{articulo.created_at}}</span>
+                <br/>
+                <a href="{% url 'eliminar' articulo.id %}" >Eliminar</a>
+                
+                <br/>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
